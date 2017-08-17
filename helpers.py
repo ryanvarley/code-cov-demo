@@ -1,3 +1,6 @@
+from __future__ import division
+
+
 def sum(a, b):
     return a + b
 
