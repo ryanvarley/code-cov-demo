@@ -19,3 +19,7 @@ def test_tail(df_fixture):
 def test_merge(df_fixture):
     assert df_fixture.merge([20, 21, 22]) == (list(range(10)) + [20, 21, 22])
 
+
+def test_sample(df_fixture):
+    result = df_fixture.sample(3)
+    assert set(result).issubset(df_fixture.data)

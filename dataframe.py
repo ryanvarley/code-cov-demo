@@ -1,4 +1,5 @@
 import csv
+import random
 
 
 class DataList(object):
@@ -40,3 +41,8 @@ class DataList(object):
                     writer.writerow([i, row])
                 else:
                     writer.writerow([row])
+
+    def sample(self, n=1, frac=None):
+        if frac is not None:
+            n = round(len(self.data) * frac)
+        return random.sample(self.data, n)
