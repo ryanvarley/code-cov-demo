@@ -1,4 +1,5 @@
 import csv
+import random
 
 
 class DataList(object):
@@ -9,9 +10,6 @@ class DataList(object):
 
     def head(self, n=5):
         return self.data[:n]
-
-    def tail(self, n=5):
-        return self.data[-n:]
 
     def merge(self, df, how='outer'):
         strategies = {
@@ -40,3 +38,8 @@ class DataList(object):
                     writer.writerow([i, row])
                 else:
                     writer.writerow([row])
+
+    def sample(self, n=1, frac=None):
+        if frac is not None:
+            n = round(len(self.data) * frac)
+        return random.sample(self.data, n)
