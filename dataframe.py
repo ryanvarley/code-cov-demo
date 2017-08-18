@@ -7,12 +7,6 @@ class DataList(object):
         # Just a list of data for now
         self.data = data
 
-    def head(self, n=5):
-        return self.data[:n]
-
-    def tail(self, n=5):
-        return self.data[-n:]
-
     def merge(self, df, how='outer'):
         strategies = {
             'inner': self._inner_merge,
